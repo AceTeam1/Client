@@ -1,0 +1,31 @@
+[package]
+name = "client"
+version = "0.1.0"
+edition = "2021"
+build = "../build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+atty = "0.2"
+console = "0.15"
+dialoguer = { version = "0.10", features = ["history", "completion"] }
+erased-serde = "0.3"
+glob = "0.3.0"
+lazy_static = "1.4"
+paw = "1.0"
+rev_lines = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+structopt = { version = "0.3", features = ["paw"] }
+strum = "0.22"
+strum_macros = "0.22"
+tokio = { version = "1.15", features = ["full"] }
+
+
+[target.'cfg(not(windows))'.dependencies]
+tilde-expand = "0.1.1"
+
+[dev-dependencies]
+toml_edit = "0.8"
